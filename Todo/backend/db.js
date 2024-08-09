@@ -1,16 +1,11 @@
-const mongoose = require("mongoose");
+const mysql = require("mysql2/promise");
 
-mongoose.connect(
-  "mongodb+srv://sakshambatta20:bxlUTmtOJruHnEcg@cluster0.vp8t9qr.mongodb.net/todos"
-);
-const todoSchema = mongoose.Schema({
-  title: String,
-  description: String,
-  completed: Boolean,
+const db = mysql.createPool({
+  host: "localhost",
+  user: "root",
+  password: "Saksham@1234",
+  database: "todo",
+  port: 3307,
 });
 
-const todo = mongoose.model("todos", todoSchema);
-
-module.exports = {
-  todo: todo,
-};
+module.exports = db;
