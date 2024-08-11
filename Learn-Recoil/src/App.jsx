@@ -32,7 +32,12 @@ function Buttons() {
 
 function CounterRender() {
   const count = useRecoilValue(countAtom);
-  return <>{count}</>;
+  return (
+    <>
+      {count}
+      <div>{count % 2 == 0 ? "It is even" : " "}</div>
+    </>
+  );
 }
 
 export default App;
